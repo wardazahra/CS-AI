@@ -1,0 +1,29 @@
+#!/bin/bash
+
+log_file="benign_behavior_log.txt"
+duration=1800  # 30 minutes in seconds
+
+echo "### Logging Started ###" > "$log_file"
+
+# Capture start time
+start_time=$(date)
+
+# Set end time for logging
+end_time=$((SECONDS + duration))
+
+# Loop until duration is reached
+while [ $SECONDS -lt $end_time ]; do
+    # Log current timestamp and activity
+    echo "$(date) - Performing activity..." >> "$log_file"
+
+    # Simulate uploading to GitHub (replace with actual command)
+    echo "$(date) - Uploading file to GitHub..." >> "$log_file"
+    # Add your GitHub upload command here (e.g., git push)
+
+    # Sleep for a few seconds (adjust as needed)
+    sleep 5  # Log activity every 5 seconds
+done
+
+echo "### Logging Completed ###" >> "$log_file"
+echo "Start Time: $start_time" >> "$log_file"
+echo "End Time: $(date)" >> "$log_file"
